@@ -1,13 +1,20 @@
 import random
 
-from nonebot import on_command, CommandSession, MessageSegment
-from nonebot.permission import *
+from nonebot import MessageSegment
+# from nonebot import on_command, CommandSession, MessageSegment
+# from nonebot.permission import *
 
 from . import utils
 
+from hoshino import Service, logger
+from hoshino.typing import CQEvent
+from hoshino.typing import CommandSession
 
+sv = Service('zhanbu', help_='''
+[luck/占卜/zhanbu]
+'''.strip())
 # on_command 装饰器将函数声明为一个命令处理器
-@on_command('luck', aliases=('占卜', 'zhanbu'), permission=EVERYBODY, only_to_me=False)
+@sv.on_command('luck', aliases=('占卜', 'zhanbu'),  only_to_me=False)
 async def luck(session: CommandSession):
     if len(utils.war or utils.magic or utils.land or utils.hand or utils.stains) == 0:
         await utils.initialization()
@@ -17,7 +24,8 @@ async def luck(session: CommandSession):
     r = random.Random(await utils.get_seed(caller_qq_number))
     # content
     # @QQ
-    at = MessageSegment(type_="at", data={"qq": caller_qq_number})
+    at = str(MessageSegment.at(caller_qq_number))
+    #at = MessageSegment(type_="at", data={"qq": caller_qq_number})
     # 运势 1-100
     luck_number = str(r.randint(1, 100))
     # 职业 ff14全部职业
