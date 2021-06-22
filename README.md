@@ -23,7 +23,7 @@
 
 ## 使用方法
 ### 超简洁方法
-向QQBot发送命令`占卜`，`zhanbu`，或`luck` （无前缀）
+向QQBot发送命令`占卜`，`/占卜`，`zhanbu`，或`/zhanbu`
 
 ## TODO
 
