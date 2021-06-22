@@ -1,18 +1,29 @@
 # onebot_Astrologian_FFXIV
- 一个基于nonebot的重构的FFXIVQQ机器人占卜插件
- 
+ ~~一个基于nonebot的重构的FFXIVQQ机器人占卜插件~~
+
+ 一个基于HoshinoBot的重构的FFXIVQQ机器人占卜插件
+
 ## 部署方法
-插件本体位于
-```
-onebot_Astrologian_FFXIV
-└─plugins
-    └─Astrologian
-```
-本插件目前无特殊设置，请参考 [Nonebot](https://github.com/nonebot/nonebot) 进行部署
+1. 将`Astrologian`文件夹放入`modules`模块文件夹
+   
+    ```
+    hoshino
+    └─modules
+        └─Astrologian
+    ```
+
+2. 在`__bot__.py`中添加模块
+   ```
+    MODULES_ON = {
+    ..., #其他模块
+    'Astrologian'
+    }
+   ```
+本插件目前无特殊设置，请参考 ~~nonebot~~ [HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot) 进行部署
 
 ## 使用方法
 ### 超简洁方法
-向QQBot发送命令`/占卜`，`/zhanbu`,或`/luck`
+向QQBot发送命令`占卜`，`zhanbu`，或`luck` （无前缀）
 
 ## TODO
 
