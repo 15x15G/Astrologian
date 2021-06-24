@@ -1,4 +1,3 @@
-from .config import Config
 from .luck import luck_daily
 
 from hoshino import Service, logger
