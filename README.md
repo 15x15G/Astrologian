@@ -1,9 +1,10 @@
 # Astrologian_for_Hoshinobot
+
  ~~一个基于nonebot的重构的FFXIVQQ机器人占卜插件~~
 
  一个基于HoshinoBot的重构的FFXIVQQ机器人占卜插件
 
- ## 部署方法
+## 部署方法
 1. 将`Astrologian`文件夹放入`modules`模块文件夹
    
     ```
@@ -22,7 +23,7 @@
 本插件目前无特殊设置，请参考 ~~nonebot~~ [HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot) 进行部署
 
 ## 使用方法
-
+ 
 ### 超简洁方法
 
 每日（从北京时间23：00）获取固定占卜结果
