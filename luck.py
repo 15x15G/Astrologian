@@ -4,7 +4,7 @@ import hashlib
 import random
 from pathlib import Path
 import json
-from nonebot.log import logger
+from hoshino import logger
 
 PATH_Astrologian = Path(__file__).parent.absolute()
 
@@ -147,8 +147,8 @@ async def luck_daily(user_id: int, redraw: bool = False, group_message: bool = T
     # 生成当天种子, 重抽判断
     r = random.Random(await get_seed(user_id * (user_id if redraw else 1)))
     # content
-    # @QQ 不需要，nonebot有命令
-    # at = "[CQ:at,qq=%s]" % caller_qq_number
+
+    at = "[CQ:at,qq=%s]" % user_id
     # 运势 1-100
     luck_number: str = str(r.randint(1, 100))
     # 职业 ff14全部职业
@@ -170,7 +170,7 @@ async def luck_daily(user_id: int, redraw: bool = False, group_message: bool = T
     hint: str = await get_hint(luck_number, luck_job, luck_event, unlucky_event, stain)
     # 群消息特殊化
     if group_message:
-        message: str = "\n运势: " + luck_number + "%  幸运职业: " + luck_job + \
+        message: str = at + "\n运势: " + luck_number + "%  幸运职业: " + luck_job + \
                        "\n宜: " + luck_event + "  忌: " + unlucky_event + "  幸运染剂: " + stain + "\n" + hint
     else:
         message: str = "运势: " + luck_number + \
