@@ -4,7 +4,7 @@ from nonebot.adapters.cqhttp import Bot, Event
 from nonebot.log import logger
 
 from .config import Config
-from .data_source import luck_daily
+from .luck import luck_daily
 
 global_config = nonebot.get_driver().config
 plugin_config = Config(**global_config.dict())
