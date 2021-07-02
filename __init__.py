@@ -10,7 +10,7 @@ sv = Service('Astrologian', help_='''
 '''.strip())
 
 # on_command 装饰器将函数声明为一个命令处理器
-@sv.on_prefix('/zhanbu', aliases=('占卜','/占卜','zhanbu'),  only_to_me=False)
+@sv.on_prefix('/zhanbu','占卜','/占卜','zhanbu',  only_to_me=False)
 async def luck(bot, ev: CQEvent):
     args: list = escape(ev.message.extract_plain_text().strip()).split()
     if args:
@@ -24,7 +24,7 @@ async def luck(bot, ev: CQEvent):
         elif ("r" in args) or ("重抽" in args) or ("redraw" in args):
             msg="开拓命运吧\n"
             msg+=await luck_daily(user_id=ev.user_id,redraw=True)        
-        elif "test" is args[0] and len(args)>1 and args[1].isdigit()==True:
+        elif args[0] == "test" and len(args)>1 and args[1].isdigit()==True:
             logger.debug("test" + ": " + args[1])
             msg=await luck_daily(user_id=int(args[1]),redraw=False)
     else:
