@@ -13,6 +13,7 @@ sv = Service('Astrologian', help_='''
 @sv.on_prefix('/zhanbu','占卜','/占卜','zhanbu',  only_to_me=False)
 async def luck(bot, ev: CQEvent):
     args: list = escape(ev.message.extract_plain_text().strip()).split()
+    msg=" "
     if args:
         if "help" in args:
             msg="""
