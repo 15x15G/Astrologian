@@ -153,7 +153,7 @@ async def luck_daily(user_id: int, redraw: bool = False, group_message: bool = T
     if r.randint(1, 100)>20:
         luck_number: str = str(r.randint(51, 100))
     else:
-        luck_number: str = str(r.randint(1, 40))
+        luck_number: str = str(r.randint(1, 50))
     # 职业 ff14全部职业
     luck_job: str = await sub_event(str(r.choice(war + magic + land + hand)))
     # 宜
